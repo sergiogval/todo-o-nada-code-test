@@ -21,9 +21,7 @@ export default function addTodo(todo) {
       </label>
       </div>
       <button class="positioner" type="button">
-      <span>&#8729;</span>
-      <span>&#8729;</span>
-      <span>&#8729;</span>
+      <i class="fas fa-trash-alt"></i>
       </button>
       </li>`
       input.value = ''
