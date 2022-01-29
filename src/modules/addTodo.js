@@ -1,13 +1,9 @@
+import _ from 'lodash';
 import todo from './todo';
 
 const input = document.getElementById('add-todo');
 const todosUL = document.getElementById('todos');
-export function removeTodo(e) {
-  if (e.target.classList.contains('remove')) {
-    const todo = e.target.parentElement;
-    todo.parentElement.removeChild(todo);
-  }
-}
+const clearBtn = document.querySelector('clear-btn');
 
 export function completeTodo(e) {
   if (e.target.classList.contains('checkbox')) {
@@ -20,39 +16,26 @@ export function addTodo() {
   const todoText = input.value;
   todo.description = todoText;
   const todoEl = document.createElement('li');
-  todoEl.setAttribute('id', todo.id);
-  todoEl.setAttribute('class', todo.completed);
-  todoEl.innerHTML = `
-  <li class="todo-el">  
-    <span>
-      <input type="checkbox" class="checkbox ${todo.completed}">
+  // todo.setAttribute('id', todosUL.childNodes.length);
+  // todo.setAttribute('value', todo.completed);
+  if ( input === null) {
+    return
+  } else {
+    todoEl.innerHTML = `
+  <li class="todo-el">
+    <div>
+      <input type="checkbox" tabindex="0" class="checkbox" >
       <label for="checkbox"><span class="todo-text">${todo.description}</span></label>
-    </span>
-    <span class="remove-todo" >
-      <i class="fas fa-trash-alt" id="${todo.id}></i>
-    </span>
+    </div>
+    <button class="positioner" >
+      <i tabindex="0" class="fa fa-trash-alt"></i>
+    </button>
   </li>
   `;
-  // TODO: add event listener to remove todo
-  // TODO: add event listener to complete todo
-  // TODO: Add localstorage function
-  // TODO: Add todo to localstorage
-  // TODO: make trash can remove todo
-  // TODO: make checkbox complete todo
-  // TODO: add todo to list
-  // TODO: add event listener to add todo
-  // TODO: add trash can to list of todos (todo-el)
-  // TODO: add checkbox to list of todos (todo-el)
-  // TODO: add todo-text to list of todos (todo-el)
-  // TODO: Get rid of undefined class on li element
-
+  
   todosUL.appendChild(todoEl);
-  localStorage.setItem('todos', JSON.stringify(this.id, this.description, this.completed));
-}
-
-function cleanInput() {
-  if (addTodo) {
-    input.value = '';
+  if (input !== null) {
+    input.value = ' ';
   }
 }
-cleanInput();
+}

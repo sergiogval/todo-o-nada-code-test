@@ -119,12 +119,16 @@ input {
   font-style: italic;
 }
 
-.checkbox {
+.checkbox,
+.checkbox:checked {
   padding: 2px;
   margin: 1px;
 }
 
-.checkbox:checked,
+.checkbox:focus {
+  outline: solid 1px black;
+}
+
 label {
   color: #3b3939;
   font-size: 0.7em;
@@ -162,6 +166,13 @@ label {
   font-size: 1.5rem;
   color: #c3c3c3;
   cursor: pointer;
+}
+
+.return-icon:focus {
+  outline: none;
+  color: #333;
+  transform: scale(1.1);
+  transition: 0.5s  ease-in-out;
 }
 
 .income-input {

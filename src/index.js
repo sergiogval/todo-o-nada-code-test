@@ -1,45 +1,32 @@
 import './style.css';
-import { addTodo, removeTodo, completeTodo } from './modules/addTodo';
+import { addTodo, init } from './modules/addTodo';
 import todo from './modules/todo';
 
+
 const form = document.getElementById('form');
-const checkbox = document.getElementById('checkbox');
+const checkbox = document.querySelector('.checkbox');
 const enterBtn = document.getElementById('enterBtn');
-const todos = JSON.parse(localStorage.getItem('todo'));
+// enterBtn.addEventListener('click', addTodo); //! This will work if the function addTodo includes all subsequents
+// const todos = JSON.parse(localStorage.getItem('todo'));
+const clearBtn = document.querySelector('.clear-btn');
+const todoEl = document.querySelector('todo-el');
+const todosUL = document.getElementById('todos');
+const trash = document.querySelector('.positioner');
+
+
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   addTodo(todo);
-  Storage(todo);
-});
+ });
 
-enterBtn.addEventListener('click', (e) => {
+enterBtn.addEventListener('click', (e) => { //!nice to have: keypress enter
   e.preventDefault();
   addTodo(todo);
-  Storage(todo);
 });
 
-function init() {
-  if (todos) {
-    addTodo(todo);
-  }
-  checkbox.addEventListener('change', removeTodo);
-  checkbox.addEventListener('change', completeTodo);
-}
-
-init();
-
-class Storage {
-  constructor() {
-    this.todos = [];
-    this.addTodo = function (todo) {
-      this.todos.push(todo);
-    };
-    this.removeTodo = function (todo) {
-      this.todos.splice(todo, 1);
-    };
-    this.completeTodo = function (todo) {
-      this.todos[todo].completed = true;
-    };
-  }
-}
+clearBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (todosUL.childNodes.length > 0) {
+  todosUL.innerHTML = '';
+}});
