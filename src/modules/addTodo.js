@@ -33,20 +33,26 @@ export function addTodo() {
     </span>
   </li>
   `;
-// TODO: add event listener to remove todo
-// TODO: add event listener to complete todo
-// TODO: Add localstorage function
-// TODO: Add todo to localstorage
-// TODO: make trash can remove todo
-// TODO: make checkbox complete todo
-// TODO: add todo to list
-// TODO: add event listener to add todo
-// TODO: add trash can to list of todos (todo-el)
-// TODO: add checkbox to list of todos (todo-el)
-// TODO: add todo-text to list of todos (todo-el)
-// TODO: Get rid of undefined class on li element
+  // TODO: add event listener to remove todo
+  // TODO: add event listener to complete todo
+  // TODO: Add localstorage function
+  // TODO: Add todo to localstorage
+  // TODO: make trash can remove todo
+  // TODO: make checkbox complete todo
+  // TODO: add todo to list
+  // TODO: add event listener to add todo
+  // TODO: add trash can to list of todos (todo-el)
+  // TODO: add checkbox to list of todos (todo-el)
+  // TODO: add todo-text to list of todos (todo-el)
+  // TODO: Get rid of undefined class on li element
 
   todosUL.appendChild(todoEl);
-  localStorage.setItem('todos', JSON.stringify({todo}));
-  input.value = '';
+  localStorage.setItem('todos', JSON.stringify(this.id, this.description, this.completed));
 }
+
+function cleanInput() {
+  if (addTodo) {
+    input.value = '';
+  }
+}
+cleanInput();
