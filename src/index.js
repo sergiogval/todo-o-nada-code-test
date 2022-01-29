@@ -1,4 +1,3 @@
-import { Element } from 'domhandler';
 import './style.css';
 
 class Task {
@@ -14,12 +13,11 @@ const tasks = [
   new Task(2, 'Learn React', false),
   new Task(3, 'Learn Redux', false)];
 
-
-  const todosUL = document.querySelector('.todos');
+const todosUL = document.querySelector('.todos');
 
 document.addEventListener('DOMContentLoaded', () => {
   tasks.forEach((elem) => {
-  todosUL.innerHTML = `
+    todosUL.innerHTML = `
   <li class="todo-el">
   <div>
   <input class="checker" value=${elem.completed} type="checkbox"/>
@@ -30,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <button class="positioner" type="button">
   <i class="fas fa-trash-alt" id=${elem.id}></i>
   </button>
-  </li>`,
-  todosUL.appendChild(Task)
+  </li>`;
+    todosUL.appendChild(Task);
+  });
 });
-});
-
