@@ -101,7 +101,7 @@ input {
   color: black;
 }
 
-.todo-el {
+li.todo-el {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -112,7 +112,7 @@ input {
   border-bottom: solid 1px darkgrey;
 }
 
-.todo-el.completed {
+li.todo-el.completed {
   text-decoration: line-through;
   text-decoration-color: #3b3939;
   color: #f6f6f6;

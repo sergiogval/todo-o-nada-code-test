@@ -1,45 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Sergio's busy day</title>
-    <!-- add icons icon -->
-    <script src="https://kit.fontawesome.com/9eeccf4b84.js" 
-    crossorigin="anonymous"></script>
-  </head>
 
-  <body tabindex="0">
-    <form class="form" id="form">
-      <fieldset class="container">
-        <h5 class="title">
-          Today's To Dos
-          <span>
-            <i class="fa fa-refresh"></i>
-          </span>
-        </h5>
-        <div class="income-input">
-          <label for="add">
-            <input
-              class="add-todo"
-              id="add-todo"
-              placeholder="Add to your list..."
-              type="text"
-              autocomplete="off"
-            />
-          </label>
-          <span  id="enterBtn" class="return-icon" tabindex="0">&crarr;</span>
-        </div>
-        <ul class="todos" id="todos">
-        </ul>
-        <input
-          class="clear-btn"
-          id="clear-btn"
-          type="button"
-          value="clear all completed"
-        />
-      </fieldset>
-    </form>
-  </body>
+<head>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Sergio's busy day</title>
+  <!-- add icons icon -->
+  <script src="https://kit.fontawesome.com/9eeccf4b84.js" crossorigin="anonymous"></script>
+</head>
+
+<body tabindex="0">
+  <form class="form" id="form">
+    <fieldset class="container">
+      <h5 class="title">
+        Today's To Dos
+        <span>
+          <i class="fa fa-refresh"></i>
+        </span>
+      </h5>
+      <div class="income-input">
+        <label for="add">
+          <input class="add-todo" id="add-todo" placeholder="Add to your list..." type="text" autocomplete="off" required/>
+        </label>
+        <span id="enterBtn" class="return-icon" tabindex="0">&crarr;</span>
+      </div>
+      <ul class="todos" id="todos">
+      </ul>
+      <input class="clear-btn" id="clear-btn" type="button" value="clear all completed" />
+    </fieldset>
+  </form>
+</body>
+
 </html>
