@@ -1,13 +1,15 @@
 import './style.css';
-import { removeTodo, completeTodo, addTodo } from './modules/addTodo';
+import addTodo from './modules/addTodo';
 import Task from './modules/Task';
 
 const form = document.getElementById('form');
 const enterBtn = document.getElementById('enterBtn');
-const todos = JSON.parse(localStorage.getItem('todos'));
 const clearBtn = document.querySelector('.clear-btn');
 const todosUL = document.getElementById('todos');
-// const trash = document.getElementsByClassName('fa-trash-alt');
+const todoEl = document.querySelector('.todo-el');
+let todosEl = JSON.parse(localStorage.getItem('todos'));
+const checkBox = document.querySelectorAll('.checkbox');
+const refresh = document.querySelector('.fa-refresh');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -27,22 +29,29 @@ clearBtn.addEventListener('click', (e) => {
   }
 });
 
-if (todosUL.childNodes.length > 0) {
-  todos.forEach((todo) => {
-    const todoEl = document.createElement('li');
-    todoEl.setAttribute('id', todosUL.childNodes.length);
-    todoEl.setAttribute('class', 'todo-el');
-    todoEl.innerHTML = `
-      <div>
-      <input type="checkbox" tabindex="0" class="checkbox" value="${todo[2]}"/>
-      <label for="checkbox"><span class="todo-text">${todo[1]}</span></label>
-      </div>
-      <button class="positioner" >
-      <i tabindex="0" class="fa fa-trash-alt"></i>
-      </button> `;
-    todosUL.appendChild(todoEl);
+refresh.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (todosUL.childNodes.length > 0) {
+    todosUL.innerHTML = '';
+    localStorage.clear();
+  }
+});
+
+todosEl = {};
+if (todosEl !== null) {
+  Array.forEach((element) => {
+    addTodo(element);
   });
 }
-addTodo(todos);
-removeTodo(todos);
-completeTodo(todos);
+
+function completeTodo() {
+  if (checkBox.onchange) {
+    todoEl.classList.toggle('completed');
+  }
+}
+
+Array.from(checkBox).forEach((checkbox) => {
+  checkbox.addEventListener('change', completeTodo);
+});
+
+completeTodo();
