@@ -1,14 +1,12 @@
-import _, { forEach } from 'lodash';
 import Task from './Task';
 
 const input = document.getElementById('add-todo');
 const todosUL = document.getElementById('todos');
 const checkbox = document.querySelectorAll('.checkbox');
 const todoEl = document.querySelector('.todo-el');
-const trash = document.getElementsByClassName('fa-trash-alt');
+// const trash = document.getElementsByClassName('fa-trash-alt');
 
 const todo = new Task();
-
 
 export function addTodo() {
   const todoText = input.value;
@@ -25,27 +23,25 @@ export function addTodo() {
     <button class="positioner" >
     <i tabindex="0" class="fa fa-trash-alt"></i>
     </button> `;
-    todosUL.appendChild(todoEl);
-    const  todos = [{}];
-    localStorage.setItem('todos', (JSON.stringify([`${todoEl.id}`,`${todo.description}`, `${checkbox.value}`]))); 
-    input.value = '';
-  }
-
-Array.from(checkbox).forEach((checkbox) => {
-  checkbox.addEventListener('change', completeTodo);
-});
-
-function completeTodo(e) {
-  if (checkbox.checked) {
-    todoEl.classList.add('completed');
-  }
+  todosUL.appendChild(todoEl);
+  const todos = [{}];
+  localStorage.setItem(todos, (JSON.stringify([`${todoEl.id}`, `${todo.description}`, `${checkbox.value}`])));
+  input.value = '';
 }
 
-function removeTodo(trash) {
-  if (e.target.checked) {
+export function removeTodo(trash) {
+  if (checkbox.checked) {
     trash.parentNode.parentNode.remove();
   }
 }
 
+export function completeTodo() {
+  if (checkbox.checked) {
+    todoEl.classList.toggle('completed');
+  }
+}
 
-
+Array.from(checkbox).forEach((checkbox) => {
+  checkbox.addEventListener('change', completeTodo);
+  checkbox.addEventListener('change', removeTodo);
+});
