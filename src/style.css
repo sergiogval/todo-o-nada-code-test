@@ -101,7 +101,7 @@ input {
   color: black;
 }
 
-li.todo-el {
+.todo-el {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -112,15 +112,18 @@ li.todo-el {
   border-bottom: solid 1px darkgrey;
 }
 
-li.todo-el.completed {
+.checkbox:checked + .todo-el {
+  text-decoration: line-through;
+}
+
+.todo-el.completed {
   text-decoration: line-through;
   text-decoration-color: #3b3939;
   color: #f6f6f6;
   font-style: italic;
 }
 
-.checkbox,
-.checkbox:checked {
+.checkbox {
   padding: 2px;
   margin: 1px;
 }
@@ -133,6 +136,12 @@ label {
   color: #3b3939;
   font-size: 0.7em;
   margin-left: 1em;
+}
+
+label:checked {
+  color: #a5a5a5;
+  text-decoration: line-through;
+  font-style: italic;
 }
 
 .positioner {

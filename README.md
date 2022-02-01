@@ -7,7 +7,7 @@ to bundle our code and use a dynamic web server to run the application. This pro
 add/remove tasks, mark tasks as complete, and display all tasks. Also it has a UI that allows users move up and down the
 list items.
 
-<!-- todo: Update the image  -->
+
 ![screenshot](./app_screenshot.png)
 
 Additional description about the project and its features.
@@ -20,7 +20,7 @@ Additional description about the project and its features.
   - JavaScript ( ES6 )
   - GIT
 
-  - Technologies used:
+- Technologies used:
   - VScode
   - GitHub
   - NPM
@@ -32,7 +32,7 @@ Additional description about the project and its features.
 ## Live Demo
 
 <!-- todo: Go live and update the link -->
-<!-- ![Live Demo Link](https://sergiogval.github.io/package-js/) -->
+![Live Demo Link](https://sergiogval.github.io/todo-o-nada/)
 
 ## Getting Started
 
