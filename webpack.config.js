@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const json5 = require('json5');
 
 module.exports = {
   mode: 'development',
@@ -46,7 +47,18 @@ module.exports = {
         type: 'asset/resource',
 
       },
+      {
 
+        test: /\.json5$/i,
+
+        type: 'json',
+
+        parser: {
+
+          parse: json5.parse,
+
+        },
+      },
     ],
 
   },

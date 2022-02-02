@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "domhandler": "^4.3.0",
+    "json5": "^2.2.0",
     "lodash": "^4.17.21",
     "path": "^0.12.7"
   },

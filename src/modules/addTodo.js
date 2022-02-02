@@ -1,10 +1,18 @@
 import Task from './Task';
 import '../style.css';
+import _ from 'lodash';
 
 const input = document.getElementById('add-todo');
-const todosUL = document.getElementById('todos');
+const {
+  appendChild,
+  childNodes: { length },
+  clear
+} = document.getElementById('todos');
 const trash = document.getElementsByClassName('positioner');
 const checkBox = document.querySelectorAll('.checkbox');
+const todosUL = document.getElementById('todos');
+
+
 
 const todo = new Task();
 
@@ -13,7 +21,7 @@ export default function addTodo() {
   const todoEl = document.createElement('li');
   todo.description = todoText;
   todo.completed = checkBox.value;
-  todoEl.setAttribute('id', todosUL.childNodes.length);
+  todoEl.setAttribute('id', length);
   todoEl.setAttribute('class', 'todo-el');
   todoEl.innerHTML = `
     <div>
@@ -31,14 +39,6 @@ export default function addTodo() {
     </button> `;
   todosUL.appendChild(todoEl);
   input.value = '';
-  trash.attachEvent('reset', (e) => {
-    e.preventDefault();
-    todoEl.innerHTML = '';
-    localStorage.clear();
-  });
-  const todos = {};
-  localStorage.setItem(todos, JSON.stringify(todo));
-}
-// localStorage
-// .setItem(todos, (JSON.stringify([`${todoEl.id}`,
-// `${todo.description}`, `${checkbox.value}`])));
+  localStorage.setItem(('todos'), JSON.stringify({id, description, completed } = todo))
+  trash.onclick('reset',
+    clear(todo.constructor))};
