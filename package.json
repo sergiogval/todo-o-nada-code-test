@@ -26,7 +26,7 @@
     "webpack-dev-server": "^4.7.3"
   },
   "dependencies": {
-    "domhandler": "^4.3.0",
+    "domhandler": "^4.3.1",
     "lodash": "^4.17.21",
     "path": "^0.12.7"
   },
